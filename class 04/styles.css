@@ -40,21 +40,15 @@ h3 {
     font-weight: bold;
   }
   
+
+  /* Main Style of Bangladesh Stars from here  */
+
   h2 {
     position: absolute;
     text-align: center;
     top: 400px;
   }
-  
-  /* Main Style Stars from here  */
-  .flag {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-  }
-  
+
   .bangladesh {
     background-color: #006a4c;
     display: grid;
