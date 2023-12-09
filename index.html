@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="center">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP Response Status Codes</title>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <a target="_blank" href="httpsStatus.jpg"></a>
+    <img
+      src="httpsStatus.jpg"
+      alt="HTTP Response Status Codes"
+      class="center"
+    />
+  </head>
+  <body>
+    <!-- MAIN (Center website) -->
+    <div class="main">
+      <h1>HTTP Response Status Codes</h1>
+      <hr />
+
+      <h2>
+        Information [100-199]
+      </h2>
+      <ul>
+        <li><b>100 Continue</b></li>
+        <p>This interim response indicates that the client should continue the request or ignore the response if the request is already finished.</p>
+
+        <li><b>101 Switching Protocols</b></li>
+        <p>This code is sent in response to an Upgrade request header from the client and indicates the protocol the server is switching to.</b></p>
+
+        <li><b>103 Early Hints</b></li>
+        <p>This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response or preconnect to an origin from which the page will need resources.</p>
+    </ul>
+    <hr />
+    <hr /><h2>
+        Success [200-299]
+      </h2>
+      <ul>
+        <li><b>200 OK</b></li>
+        <p>The request succeeded. The result meaning of "success" depends on the HTTP method:
+            <ul>
+            <li>GET: The resource has been fetched and transmitted in the message body.</li>
+            <li>HEAD: The representation headers are included in the response without any message body.</li>
+            <li>PUT or POST: The resource describing the result of the action is transmitted in the message body.</li>
+            <li>TRACE: The message body contains the request message as received by the server.</li>
+        </ul>
+        </p>
+
+        <li><b>201 Created</b></li>
+        <p>The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests</b></p>
+
+        <li><b>202 Accepted</b></li>
+        <p>The request has been received but not yet acted upon. It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing.</p>
+
+        <li><b>203 Non-Authoritative Information</b></li>
+        <p>This response code means the returned metadata is not exactly the same as is available from the origin server, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the 200 OK response is preferred to this status.</p>
+
+        <li><b>204 No Content</b></li>
+        <p>There is no content to send for this request, but the headers may be useful. The user agent may update its cached headers for this resource with the new ones.</b></p>
+
+        <li><b>205 Reset Content</b></li>
+        <p>Tells the user agent to reset the document which sent this request.</p>
+
+        <li><b>206 Partial Content
+        </b></li>
+        <p>This response code is used when the Range header is sent from the client to request only part of a resource.</b></p>
+        <li><b>207 Multi-Status (WebDAV)
+        </b></li>
+        <p>Conveys information about multiple resources, for situations where multiple status codes might be appropriate.</b></p>
+        <li><b>208 Already Reported (WebDAV)
+        </b></li>
+        <p>TUsed inside a <dav:propstat> response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.</b></p>
+    </ul>
+    <hr />
+    <hr />
+    <h2>
+        Redirect [300-399]
+      </h2>
+      <ul>
+        <li><b>300 Multiple Choices</b></li>
+        <p>The request has more than one possible response. The user agent or user should choose one of them. (There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick.</p>
+
+        <li><b>301 Moved Permanently
+        </b></li>
+        <p>The URL of the requested resource has been changed permanently. The new URL is given in the response.</b></p>
+        
+        <li><b>302 Found
+        </b></li>
+        <p>This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.</b></p>
+        <li><b>303 See Other
+        </b></li>
+        <p>The server sent this response to direct the client to get the requested resource at another URI with a GET request.</b></p>
+        
+        <li><b>305 Use Proxy</b></li>
+        <p>Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy.</p>
+
+        <li><b>306 unused</b></li>
+        <p>This response code is no longer used; it is just reserved. It was used in a previous version of the HTTP/1.1 specification.</b></p>
+        
+        <li><b>307 Tempporary Redirect</b></li>
+        <p>The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request. This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.</b></p>
+
+        <li><b>308 Partial Content</b></li>
+        <p>This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request.</p>
+
+    <hr />
+    <hr />
+    <h2>
+        Client Error Responses[400-499]
+      </h2>
+      <ul>
+        <li><b>
+            400 Bad Request
+        </b></li>
+        <p>The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+        </p>
+
+        <li><b>
+            401 Unauthorized
+        </b></li>
+        <p> 
+            Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+        </b></p>
+        
+        <li><b>
+            402 Payment Required
+        </b></li>
+        <p>
+            This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.
+        </b></p>
+
+        <li><b>
+            403 Forbidden
+        </b></li>
+        <p>
+            The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+        </b></p>
+        
+        <li><b>404 Not Found</b></li>
+        <p>The server cannot find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.
+
+        </p>
+
+        <li><b>405 Method Not Allowed
+        </b></li>
+        <p>The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource.</p>
+
+        <li><b>406 Not Acceptable</b></li>
+        <p>This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.</p>
+
+        <li><b>408 Request Timeout
+        </b></li>
+        <p>This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing. Also note that some servers merely shut down the connection without sending this message.</p>
+
+        <li><b>409 Conflict</b></li>
+        <p>This response is sent when a request conflicts with the current state of the server.</p>
+
+        <li><b>410 Gone</b></li>
+        <p>This response is sent when the requested content has been permanently deleted from server, with no forwarding address. Clients are expected to remove their caches and links to the resource. The HTTP specification intends this status code to be used for "limited-time, promotional services". APIs should not feel compelled to indicate resources that have been deleted with this status code.</p>
+
+        <li><b>411 Length Required
+        </b></li>
+        <p>Server rejected the request because the Content-Length header field is not defined and the server requires it.</p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+
+    <hr />
+    <hr />
+    <h2>
+      Server error responses[500-599]
+    </h2>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+        <li><b></b></li>
+        <p></p>
+
+    <hr />
+    <hr />
+
+    <footer>
+        <p>Author: TohaTanvir<br>
+        <a href="https://tanvirabudullahtoha.raselvaiwsesuperstars.xyz/">TohaTanvir</a></p>
+      </footer>
+      
+  </body>
+</html>
